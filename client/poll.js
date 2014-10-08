@@ -3,11 +3,6 @@ Template.poll.helpers({
 		return "result"
 	},
 	isAdmin: function() {
-		var coll = Collection.findOne('admin')
-		console.log("check again")
-
-		if (! _.isUndefined(coll) && coll.admin.isAdmin === true)
-			return true
 	},
 	name: function() {
 		return ""
