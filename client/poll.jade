@@ -1,18 +1,19 @@
 template(name="poll")
 	+loginButtons(align="right")
-	if isAdmin
-		form(name="name")
-			input.name(name="name" placeholder="küsimus")
-		button.bottom.reset(name="reset") reset
-		.result
+	if currentUser
+		form(name="question")
+			input(name="question" placeholder="küsimus")
+			input(name="yes" placeholder="Jah")
+			input(name="no" placeholder="Ei")
 			p {{result}}
+			input(type="submit" name="submit")
+		button(name="new") Uus
 	else
-		if name
-			.name {{name}}
-			.choice
-				button.yes Jah
-				button.no Ei
+		if item
+			with item
+				.question {{question}}
+				form(name="vote")
+					input.yes(type="submit" name="yes" value="{{yes}}")
+					input.no(type="submit" name="no" value="{{no}}")
 		else
 			p Küsimust pole
-		form(name="pass")
-			input.bottom.pass(name="pass" placeholder="häki mind" type="password")
