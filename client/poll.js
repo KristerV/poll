@@ -21,7 +21,7 @@ Template.poll.helpers({
 			else if (vote == 'no')
 				no++
 		})
-		return yes + ' / ' + no
+		return yes + ' - ' + no
 	}
 })
 
@@ -63,8 +63,8 @@ Template.poll.events({
 		e.preventDefault()
 		var vote = $(e.currentTarget).attr('name')
 		var last = Questions.findOne({}, {sort: {timestamp: -1}})
-		data = {votes: {}}
-		data['votes'][Session.get('user')] = vote
+		data = {}
+		data['votes.'+Session.get('user')] = vote
 		Questions.update(last._id, {$set: data})
 	},
 	'click button[name="new"]': function(e, tmpl) {

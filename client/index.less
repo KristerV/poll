@@ -1,41 +1,63 @@
 html, body {
 	width: 100%;
 	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+#login-buttons {
+	font-size: 15px;
+	color: rgba(0,0,0,0.3);
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.center {
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	align-content: center;
-}
-
-body {
-	font-size: 2em;
-}
-
-input {
-	width: 10em;
+	max-width: 600px;
 	margin: auto;
-}
-
-input[name="question"] {
-	width: 20em;
-}
-
-input[name="question"], input[name="submit"] {
-	display: block;
-}
-
-p {
 	text-align: center;
 }
 
-button {
-	width: 10em;
+form[name="question"] {
+	input {
+		width: 47%;
+		outline: 0;
+		border: 0;
+		text-align: center;
+		&:focus {
+			outline: 0;
+			border: 0;
+		}
+	}
+	input[name="question"] {
+		width: 97%;
+		text-align: center;
+	}
 }
 
-#login-buttons {
-	font-size: 17px;
+button {
+	background-color: transparent;
+	border: 0;
+	outline: 0;
+	width: auto;
 	position: absolute;
-	top: 0;
+	top: 20px;
 	right: 0;
+	color: rgba(0,0,0,0.3);
+}
+
+p {
+	font-size: 30px;
+	margin: 5px;
+}
+
+input {
+	margin: 5px;
+	font-size: 20px;
 }
